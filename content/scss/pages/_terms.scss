@@ -1,0 +1,129 @@
+.termsAndServices {
+    padding: 86px 99px 0px 99px;
+    background-color: #E9E9E9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 85px;
+
+    @include responsive (max, 991px) {
+        padding: 30px;
+    }
+
+    &__part {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+        width: 100%;
+        &__first {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 29px;
+            width: 100%;
+
+            &__item {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
+                p {
+                    margin: 0;
+                    width: 100%;
+                }
+
+                .unordered {
+                    list-style: disc;
+                }
+
+                .contact {
+                    text-decoration: underline;
+                    color: black;
+                }
+            }
+        }
+
+        &__hint {
+            color: #000;
+            font-family: $fourthFont;
+            font-size: 17.778px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 150%;
+        }
+    }
+}
+
+.downloadHaggz {
+    padding: 71px 99px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 43px;
+    align-self: center;
+
+    @include responsive (max, 991px) {
+        padding: 40px 0px;
+    }
+
+    &__images {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 35.556px;
+        width: 100%;
+        gap: 50px;
+        @include responsive (max,991px) {
+            display: none;
+        }
+        &__item {
+            width: calc((100% / 4) - 50px);
+            height: 217px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &__title {
+        color: #000;
+
+        text-align: center;
+        font-family: $mainFont;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 112%;
+
+        @include responsive (max, 991px) {
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        span {
+            color: #000;
+            font-family: $subFont;
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 112%;
+            @include responsive (max, 991px) {
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &__btns {
+        width: max-content;
+    }
+}
+
+footer {
+    background-color: #E9E9E9;
+}
