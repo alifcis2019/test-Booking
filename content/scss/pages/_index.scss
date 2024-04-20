@@ -44,12 +44,20 @@
                                 width: 32px;
                                 height: 32px;
                             }
+                            @include responsive (max, 330px) {
+                                width: 25px;
+                                height: 25px;
+                            }
                         }
                     }
 
                     @include responsive (max, 991px) {
                         font-size: 32px;
                         font-weight: 800;
+                    }
+                    @include responsive (max, 330px) {
+                        font-size: 25px;
+                        font-weight: 600;
                     }
                 }
             }
@@ -71,6 +79,11 @@
                     @include responsive (max, 991px) {
                         font-size: 14px;
                     }
+                    @include responsive (max, 330px) {
+                        max-width: 80%;
+                        text-align: center;
+                        margin: auto;
+                    }
                 }
             }
         }
@@ -83,7 +96,11 @@
             gap: 15px;
             position: relative;
             width: 100%;
-
+            @include responsive (max, 330px) {
+                font-size: 16px;
+                gap: 20px;
+                flex-direction: column;
+            }
             .homeBTn {
                 padding: 14.222px 28.444px;
                 display: flex;
@@ -95,6 +112,10 @@
                 font-family: $mainFont;
                 font-weight: 600;
                 font-size: 18px;
+                @include responsive (max, 330px) {
+                    font-size: 16px;
+                    gap: 5px;
+                }
             }
 
             &__getnow {
@@ -172,6 +193,10 @@
                 font-size: 32px;
                 font-weight: 600;
             }
+            @include responsive (max, 330px) {
+                font-size: 25px;
+                font-weight: 600;
+            }
         }
 
     }
@@ -184,7 +209,10 @@
     gap: 43px;
     padding: 71.111px 20px;
     background-color: $color-primary;
+    @include responsive (max,991px) {
+        padding: 30px 20px;
 
+    }
     &__header {
         p {
             color: #000;
@@ -226,7 +254,21 @@
 
         @include responsive (max, 991px) {
             display: inline-block;
+            height: 255px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
+        @include responsive (max, 330px) {
+            display: inline-block;
+            height: 255px;
+            width: 90%;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+    }
     }
 
     &__desc {
@@ -254,7 +296,7 @@
     justify-content: center;
     gap: 30px;
     padding: 71px 99px;
-    background-color: $color-primary;
+    background-color: black;
     width: 100%;
 
     @include responsive (max, 991px) {
@@ -262,70 +304,26 @@
 
     }
 
-    &__first {
-        position: relative;
+    &__item {
         display: flex;
         align-items: center;
-        justify-content: center;
-
-        &__business {
-            img {
-                position: absolute;
-                #{$s}: -20%;
-                top: -30%;
-
-                @include responsive (max, 991px) {
-                    top: -70%;
-                    #{$s}: -25%;
-                }
-
-                @include responsive (max, 440px) {
-                    top: -80%;
-                    #{$s}: -30%;
-                }
-            }
-        }
-
-        &__title {
-            width: 100%;
-            text-align: center;
-            align-self: center;
-            color: #000;
-            text-align: center;
-            font-family: $mainFont;
-            font-size: 56.889px;
-            font-style: normal;
-            font-weight: 700;
-            margin: 0;
-            line-height: normal;
-
-            @include responsive (max, 991px) {
-                font-size: 36px;
-            }
-
-            @include responsive (max, 440px) {
-                font-size: 30px;
-            }
-        }
+        gap: 0;
     }
-
-    &__second {
-        width: 100%;
+    &__item__mobile {
         display: flex;
         align-items: center;
-        justify-content: center;
-
-        &__profit {
-            img {
-                position: absolute;
-                #{$s}: 100%;
-                top: 0%;
-            }
+        justify-content: space-between;
+        @include responsive (max,991px) {
+            flex-direction: column;
+            gap: 32px;
         }
 
-        &__toogle {
-            position: relative;
-            padding: 10px;
+        img {
+            &:nth-child(2) {
+                @include responsive (max,991px) {
+                    align-self: flex-end;
+                }
+            }
         }
     }
 }
