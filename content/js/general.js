@@ -17,5 +17,3 @@ if (preloader) {
 // initialize aos library
 AOS.init();
 
-
-

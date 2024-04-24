@@ -87,7 +87,7 @@ main {
   inset: 0;
   z-index: 999999;
   overflow: hidden;
-  background: #fff;
+  background: black;
   -webkit-transition: all 0.6s ease-out;
   transition: all 0.6s ease-out;
   display: -webkit-box;
@@ -98,31 +98,51 @@ main {
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
-  #preloader .spin {
-    border: 6px solid #fff;
-    border-color: #A8FF35 transparent #A8FF35 transparent;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: animate-preloader 1.5s linear infinite;
-            animation: animate-preloader 1.5s linear infinite; }
-
-@-webkit-keyframes animate-preloader {
+          align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: "Effra VF Trial", sans-serif;
+  background: black; }
+  #preloader .loader {
+    width: 30%;
+    height: 4.8px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: #726e6e; }
+    @media (max-width: 991px) {
+      #preloader .loader {
+        width: 40%; } }
+  #preloader .loader::after {
+    content: '';
+    width: 96px;
+    height: 4.8px;
+    background: #A8FF35;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-animation: hitZak 1s ease-in-out infinite alternate;
+            animation: hitZak 1s ease-in-out infinite alternate; }
+@-webkit-keyframes hitZak {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
+    left: 0;
+    -webkit-transform: translateX(-1%);
+            transform: translateX(-1%); }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
-
-@keyframes animate-preloader {
+    left: 100%;
+    -webkit-transform: translateX(-99%);
+            transform: translateX(-99%); } }
+@keyframes hitZak {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
+    left: 0;
+    -webkit-transform: translateX(-1%);
+            transform: translateX(-1%); }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    left: 100%;
+    -webkit-transform: translateX(-99%);
+            transform: translateX(-99%); } }
 .globalBtn {
   border-radius: 0px 35.556px 35.556px 0px;
   background: var(--Foundation-Primary-Primary, #AAF448);
@@ -265,7 +285,40 @@ main {
         font-family: "Effra VF Trial", sans-serif;
         font-size: 16px;
         font-style: normal;
-        font-weight: 400; }
+        font-weight: 400;
+        position: relative;
+        -webkit-transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        #header .navsbar__user__partner:hover {
+          background-color: #A8FF35;
+          -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+                  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+        #header .navsbar__user__partner::after {
+          content: "";
+          display: block;
+          position: absolute;
+          border-radius: 4em;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+          -webkit-box-shadow: 0 0 1px 5px white;
+                  box-shadow: 0 0 1px 5px white; }
+        #header .navsbar__user__partner:active::after {
+          -webkit-box-shadow: 0 0 0 0 white;
+                  box-shadow: 0 0 0 0 white;
+          position: absolute;
+          border-radius: 4em;
+          left: 0;
+          top: 0;
+          opacity: 1;
+          -webkit-transition: 0s;
+          transition: 0s; }
+        #header .navsbar__user__partner:active {
+          top: 1px; }
       @media (max-width: 991px) {
         #header .navsbar__user {
           display: none; } }
@@ -411,7 +464,26 @@ footer {
         -webkit-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
-        gap: 10px; }
+        gap: 10px;
+        -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        footer .downPart .links__social a {
+          -webkit-transition: all 1s step-end;
+          transition: all 1s step-end; }
+          footer .downPart .links__social a img:nth-child(2) {
+            display: none; }
+          footer .downPart .links__social a:hover img:nth-child(1) {
+            display: none; }
+          footer .downPart .links__social a:hover img:nth-child(2) {
+            display: block; }
+        @media (max-width: 991px) {
+          footer .downPart .links__social a {
+            -webkit-transition: all 1s step-end;
+            transition: all 1s step-end; }
+            footer .downPart .links__social a img:nth-child(1) {
+              display: none; }
+            footer .downPart .links__social a img:nth-child(2) {
+              display: block; } }
     footer .downPart .copyRights {
       width: 33.3%;
       margin: 0;
@@ -421,6 +493,14 @@ footer {
       font-size: 16px;
       font-style: normal;
       font-weight: 400; }
+      footer .downPart .copyRights p {
+        margin: 0;
+        color: #A3A3A3;
+        text-align: center;
+        font-family: "Effra VF Trial", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400; }
       @media (max-width: 991px) {
         footer .downPart .copyRights {
           width: 100%; } }
@@ -444,7 +524,8 @@ footer {
   background-color: black;
   height: -webkit-max-content;
   height: -moz-max-content;
-  height: max-content; }
+  height: max-content;
+  overflow: hidden; }
   @media (max-width: 991px) {
     .home {
       padding-inline: 18px; } }
@@ -555,7 +636,8 @@ footer {
         @media (max-width: 330px) {
           .home__content__btns .homeBTn {
             font-size: 16px;
-            gap: 5px; } }
+            gap: 5px;
+            padding: 14.222px 14.444px; } }
       .home__content__btns__getnow {
         position: absolute;
         right: 5%;
@@ -645,44 +727,30 @@ footer {
     font-size: 64px;
     font-style: normal;
     font-weight: 800;
-    margin: 0; }
+    line-height: normal; }
     @media (max-width: 991px) {
       .clickAway__header p {
-        text-align: center;
-        font-family: "Effra VF Trial", sans-serif;
         font-size: 28px;
-        font-style: normal;
-        font-weight: 800; } }
+        line-height: 112%; } }
   .clickAway__image {
-    width: 355px;
-    height: 255px; }
-    @media (max-width: 991) {
+    width: 600px;
+    height: 400px; }
+    @media (max-width: 991px) {
       .clickAway__image {
-        width: 80%;
-        height: 255px; } }
+        width: 600px;
+        height: 400px; } }
     .clickAway__image img {
       width: 100%;
       height: 100%; }
-    @media (max-width: 991px) {
+    @media (max-width: 600px) {
       .clickAway__image {
-        display: none; } }
+        width: 100%;
+        height: 350px; } }
+    .clickAway__image img {
+      width: 100%;
+      height: 100%; }
   .clickAway__imageResponsive {
     display: none; }
-    @media (max-width: 991px) {
-      .clickAway__imageResponsive {
-        display: inline-block;
-        height: 255px; }
-        .clickAway__imageResponsive img {
-          width: 100%;
-          height: 100%; } }
-    @media (max-width: 330px) {
-      .clickAway__imageResponsive {
-        display: inline-block;
-        height: 255px;
-        width: 90%; }
-        .clickAway__imageResponsive img {
-          width: 100%;
-          height: 100%; } }
   .clickAway__desc {
     width: 100%;
     -ms-flex-item-align: center;
@@ -727,6 +795,36 @@ footer {
         -ms-flex-align: center;
             align-items: center;
     gap: 0; }
+    .joinUsNow__item .becomePartner:hover {
+      background-color: #A8FF35;
+      -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+              box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+    .joinUsNow__item .becomePartner::after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 4em;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+      -webkit-box-shadow: 0 0 1px 5px white;
+              box-shadow: 0 0 1px 5px white; }
+    .joinUsNow__item .becomePartner:active::after {
+      -webkit-box-shadow: 0 0 0 0 white;
+              box-shadow: 0 0 0 0 white;
+      position: absolute;
+      border-radius: 4em;
+      left: 0;
+      top: 0;
+      opacity: 1;
+      -webkit-transition: 0s;
+      transition: 0s; }
+    .joinUsNow__item .becomePartner:active {
+      top: 1px; }
   .joinUsNow__item__mobile {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -734,9 +832,10 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    overflow: hidden; }
     @media (max-width: 991px) {
       .joinUsNow__item__mobile {
         -webkit-box-orient: vertical;
@@ -748,6 +847,10 @@ footer {
       .joinUsNow__item__mobile img:nth-child(2) {
         -ms-flex-item-align: end;
             align-self: flex-end; } }
+    .joinUsNow__item__mobile .business-text {
+      position: absolute;
+      top: -5px;
+      left: 5%; }
 
 footer {
   background-color: white; }
@@ -874,13 +977,17 @@ footer {
     font-family: "Effra VF Trial", sans-serif;
     font-size: 64px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 112%; }
+    font-weight: 700;
+    line-height: 112%;
+    /* 71.68px */ }
     @media (max-width: 991px) {
       .downloadHaggz__title {
-        font-size: 32px;
+        color: #000;
+        text-align: center;
+        font-family: "Effra VF Trial", sans-serif;
+        font-size: 28px;
         font-style: normal;
-        font-weight: 400; } }
+        font-weight: 800; } }
     @media (max-width: 330px) {
       .downloadHaggz__title {
         font-size: 25px;
@@ -888,20 +995,19 @@ footer {
         font-weight: 400; } }
     .downloadHaggz__title span {
       color: #000;
-      font-family: "TypoGraphica", sans-serif;
+      font-family: TypoGraphica;
       font-size: 64px;
       font-style: normal;
-      font-weight: 400;
-      line-height: 112%; }
+      font-weight: 400; }
       @media (max-width: 991px) {
         .downloadHaggz__title span {
-          font-size: 32px;
+          color: #000;
+          text-align: center;
+          font-family: "Effra VF Trial", sans-serif;
+          font-size: 28px;
           font-style: normal;
-          font-weight: 400; } }
+          font-weight: 800; } }
   .downloadHaggz__btns {
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -910,7 +1016,8 @@ footer {
             align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between; }
+            justify-content: space-between;
+    gap: 15px; }
     @media (max-width: 991px) {
       .downloadHaggz__btns {
         -webkit-box-orient: vertical;
@@ -918,8 +1025,17 @@ footer {
             -ms-flex-direction: column;
                 flex-direction: column;
         gap: 20px; } }
-
-footer {
-  background-color: #E9E9E9; }
-
+    .downloadHaggz__btns a {
+      padding: 14.222px 28.444px;
+      border-radius: 35.556px;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+      -webkit-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out; }
+      .downloadHaggz__btns a:hover {
+        -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); }
+  .downloadHaggz footer {
+    background-color: #E9E9E9; }
 /*# sourceMappingURL=main-ltr.css.map */

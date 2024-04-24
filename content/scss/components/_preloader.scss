@@ -3,28 +3,50 @@
     inset: 0;
     z-index: 999999;
     overflow: hidden;
-    background: #fff;
+    background: black;
     transition: all 0.6s ease-out;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: $mainFont;
+    background: black;
 
-    .spin {
-        border: 6px solid #fff;
-        border-color: $color-primary transparent $color-primary transparent;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: animate-preloader 1.5s linear infinite;
-    }
-}
-
-@keyframes animate-preloader {
-    0% {
-        transform: rotate(0deg);
+    .loader {
+        width: 30%;
+        height: 4.8px;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        background-color: rgb(114, 110, 110);
+        @include responsive (max,991px) {
+            width: 40%;
+        }
     }
 
-    100% {
-        transform: rotate(360deg);
+    .loader::after {
+        content: '';
+        width: 96px;
+        height: 4.8px;
+        background: $color-primary;
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        animation: hitZak 1s ease-in-out infinite alternate;
     }
+
+    @keyframes hitZak {
+        0% {
+            left: 0;
+            transform: translateX(-1%);
+        }
+
+        100% {
+            left: 100%;
+            transform: translateX(-99%);
+        }
+    }
+
 }
