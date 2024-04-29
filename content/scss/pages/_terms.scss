@@ -71,6 +71,18 @@
     gap: 43px;
     align-self: center;
 
+    .large-screen {
+        @include responsive(max,991px) {
+            display: none;
+        }
+    }
+    .mobile-screen {
+        display: none;
+        @include responsive(max,991px) {
+            display: block;
+        }
+    }
+
     @include responsive (max, 991px) {
         padding: 40px 5px;
     }
@@ -89,7 +101,7 @@
 
         &__item {
             width: calc((100% / 4) - 50px);
-            aspect-ratio: 2/2;
+            aspect-ratio: 1.32473/1;
             @include responsive (max, 991px) {
                 width: 80%;
             }
