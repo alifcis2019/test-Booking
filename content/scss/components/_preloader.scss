@@ -14,20 +14,20 @@
     background: black;
 
     .loader {
-        width: 30%;
-        height: 4.8px;
+        width: 10%;
+        height: 3.5px;
         display: inline-block;
         position: relative;
         overflow: hidden;
         background-color: rgb(114, 110, 110);
         @include responsive (max,991px) {
-            width: 40%;
+            width: 30%;
         }
     }
 
     .loader::after {
         content: '';
-        width: 96px;
+        width: 50px;
         height: 4.8px;
         background: $color-primary;
         position: absolute;
